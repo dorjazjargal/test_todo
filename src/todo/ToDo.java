@@ -28,7 +28,7 @@ public class ToDo {
             item = inputArray[1];
             if(command.equals("add") || command.equals("list") || command.equals("done")){
                 System.out.println("sdfsdf");
-                System.out.println("sdfsdf");
+          
             }
             else{
                 System.out.println("Invalid");
