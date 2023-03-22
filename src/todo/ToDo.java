@@ -33,7 +33,7 @@ public class ToDo {
                 command = command.toLowerCase();
             }
             
-            if(inputArray.length==1 || command.equals("list")){
+            if(inputArray.length==1 && command.equals("list")){
                list_console();
             }
             
@@ -44,9 +44,9 @@ public class ToDo {
 //                    System.out.println(my_toDo.toString());
                     System.out.println("Created task " + my_toDo.size());
                 }
-                if (command.equals("list")) {
-                    list_console();
-                }
+//                if (command.equals("list")) {
+//                    list_console();
+//                }
             } else {
                 System.out.println("Invalid command");
             }
@@ -62,7 +62,7 @@ public class ToDo {
         System.out.println("ID Description");
         System.out.println("_ _  _ _ _ _ _ "+"\n");
         for(int i=0; i<my_toDo.size();i++){
-            System.out.println(my_toDo.get(i)+" "+my_toDo.);
+            System.out.println(my_toDo.indexOf(my_toDo.get(i))+1+" "+my_toDo.get(i));
         }
         return null;
 
