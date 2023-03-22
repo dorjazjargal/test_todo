@@ -5,6 +5,7 @@
  */
 package todo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -19,22 +20,28 @@ public class ToDo {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
-        String str, command, item;
-
+        String str, command, toDO;
+        ArrayList<String> my_toDo = new ArrayList<String>();
         while (true) {
             str = sc.nextLine();
             String[] inputArray = str.split("\\s+");
             command = inputArray[0];
-            item = inputArray[1];
-            if(command.equals("add") || command.equals("list") || command.equals("done")){
-                System.out.println("sdfsdf");
-          
-            }
-            else{
-                System.out.println("Invalid");
+            toDO = inputArray[1];
+            command = command.toLowerCase();
+            if (command.equals("add") || command.equals("list") || command.equals("done")) {
+                if(command.equals("add")){
+                    toDO=trim_add(str);
+                    System.out.println(toDO);
+                }
+            } else {
+                System.out.println("Invalid command");
             }
         }
-
     }
 
+    public static String trim_add(String str2) {
+        str2=(String) str2.subSequence(4, str2.length());
+        return str2;
+
+    }
 }
