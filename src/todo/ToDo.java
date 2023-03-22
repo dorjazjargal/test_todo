@@ -65,17 +65,16 @@ public class ToDo {
         for (int i = 0; i < my_toDo.size(); i++) {
             System.out.println(my_toDo.indexOf(my_toDo.get(i)) + 1 + " " + my_toDo.get(i));
         }
+        System.out.println("task " + my_toDo.size());
         return null;
     }
 
     public static void Done(String DeleteId) {
         if (isNumer(DeleteId)) {
             int id = Integer.parseInt(DeleteId);
-            id = id - 1;
-            if (id < 0) {
-                id = 0;
+            if (id <= my_toDo.size() && my_toDo.isEmpty() == false && id>=1) {
+                my_toDo.remove(id-1);
             }
-            my_toDo.remove(id);
         }
     }
 
