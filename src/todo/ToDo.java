@@ -17,21 +17,35 @@ public class ToDo {
     /**
      * @param args the command line arguments
      */
+    static String str, command, toDO;
+    static ArrayList<String> my_toDo = new ArrayList<String>();
+
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
-        String str, command, toDO;
-        ArrayList<String> my_toDo = new ArrayList<String>();
+
         while (true) {
             str = sc.nextLine();
             String[] inputArray = str.split("\\s+");
-            command = inputArray[0];
-            toDO = inputArray[1];
-            command = command.toLowerCase();
-            if (command.equals("add") || command.equals("list") || command.equals("done")) {
-                if(command.equals("add")){
-                    toDO=trim_add(str);
-                    System.out.println(toDO);
+            
+            if (str != null) {
+                command = inputArray[0];
+                command = command.toLowerCase();
+            }
+            
+            if(inputArray.length==1 || command.equals("list")){
+               list_console();
+            }
+            
+            if (command.equals("add") || command.equals("done") || command.equals("list")) {
+                if (command.equals("add")) {
+                    toDO = trim_add(str);
+                    my_toDo.add(toDO);
+//                    System.out.println(my_toDo.toString());
+                    System.out.println("Created task " + my_toDo.size());
+                }
+                if (command.equals("list")) {
+                    list_console();
                 }
             } else {
                 System.out.println("Invalid command");
@@ -40,8 +54,17 @@ public class ToDo {
     }
 
     public static String trim_add(String str2) {
-        str2=(String) str2.subSequence(4, str2.length());
+        str2 = (String) str2.subSequence(4, str2.length());
         return str2;
+    }
+
+    public static String list_console() {
+        System.out.println("ID Description");
+        System.out.println("_ _  _ _ _ _ _ "+"\n");
+        for(int i=0; i<my_toDo.size();i++){
+            System.out.println(my_toDo.get(i)+" "+my_toDo.);
+        }
+        return null;
 
     }
 }
